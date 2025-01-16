@@ -26,6 +26,13 @@ spec:
           limits: # The POD which contains this container (which has this image) will not be allowed to use more than 500m of CPU and 128Mi of memory of the POD
             memory: "128Mi"
             cpu: "500m"        
+        securityContext:  # will set the security context for the container.
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true  # will set the container to run as a non-root user.
+          capabilities:
+            drop:
+              - ALL
+          readOnlyRootFilesystem: true  # will set the container to have a read-only root filesystem.
         ports:  # will expose port 8080 on the container.
         - containerPort: 8080 
         env:
