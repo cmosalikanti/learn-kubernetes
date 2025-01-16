@@ -1,0 +1,36 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment  # will create a Deployment resource by putting an image in a container, and then running that container in a pod.
+metadata:
+  name: pod-info-deployment
+  namespace: development
+  labels:
+    app: pod-info
+spec:
+  replicas: 3 # will convey how many instances of the pod should be running. Each pod will hold a container running the pod-info-app image.
+  selector:
+    matchLabels:
+      app: pod-info # will select the pods that the Deployment will manage. The Deployment will manage pods with the label app: pod-info.
+  template:
+    metadata:
+      labels:
+        app: pod-info
+    spec:
+      containers:
+      - name: pod-info-container  # will create a container named pod-info-container.
+        image: csekharm/pod-info-app:latest  # will use the csekharm/pod-info-app image.
+        ports:
+        - containerPort: 3000 # will expose port 3000 on the container.
+        env:
+          - name: POD_NAME  # will set the environment variables POD_NAME, POD_NAMESPACE, and POD_IP.
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
