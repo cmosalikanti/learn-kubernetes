@@ -1,0 +1,43 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-service-pod # will create a Deployment resource named booking-service-pod.
+  namespace: development  # will create the Deployment resource in the development namespace.   
+  labels:
+    app: booking-service-pod  # will apply the label app: booking-service-pod to the Deployment resource.
+spec:
+  replicas: 2   # will create two instances of the pod.
+  selector:
+    matchLabels:
+      app: booking-service-pod  # will select the pods that the Deployment will manage. The Deployment will manage pods with the label app: booking-service-pod.
+  template:
+    metadata:
+      labels:
+        app: booking-service-pod  # will apply the label app: booking-service-pod to the pods.
+    spec:
+      containers:
+      - name: booking-service-container # will create a container named booking-service-container.
+        image: databrick/booking-service:0.5.0  # will use the databrick/booking-service:0.5.0 image.
+        resources:
+          requests: # The POD which contains this container (which has this image) will only serve requests if the POD has 250m of CPU and 64Mi of memory.
+            memory: "64Mi"
+            cpu: "250m"
+          limits: # The POD which contains this container (which has this image) will not be allowed to use more than 500m of CPU and 128Mi of memory of the POD
+            memory: "128Mi"
+            cpu: "500m"        
+        ports:  # will expose port 8080 on the container.
+        - containerPort: 8080 
+        env:
+          - name: POD_NAME  # will set the environment variables POD_NAME, POD_NAMESPACE, and POD_IP.
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP        
