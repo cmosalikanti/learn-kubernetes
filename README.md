@@ -8,41 +8,41 @@
         Master node(s) - Responsible for the overall management and control of the cluster like scheduling, load-balancing etc., 
         Worker nodes   - Run the applications in containers.
 
-**Kubernetes Node**
+## Kubernetes Node
 
 - Single machine (either physical or virtual) within a Kubernetes cluster that runs one or more containers.
 
-**Pod**
+## Pod
 
 -    A Node contains multiple pods
 
-**Container**
+## Container
 
 -   A pod can run one or more containers, but typically, each pod runs one container to maintain simplicity and scalability.
 
 -   runtime instance of a Docker image. It is the active version of an image that is running.
 
-**Docker Image**
+## Docker Image
 
 An executable piece of software that contains the application code, libraries, environment variables, and configurations needed to run a program.
 
-**minikube
+## minikube
 
 quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows. On Cloud, we can have clusters from cloud providers like Google, Amazon etc.,
 
-**kubectl**
+## kubectl
     
 helps to manage the cluster e.g., kubectl get nodes
 
-**busybox**
+## busybox
 
 like an app to see if the containers in the pod are running
 
-**Cluster**
+## Cluster
     
 An instance of Kubernetes.
 
-**Kubernetes Control Plane**
+## Kubernetes Control Plane
 
 This is like an air-traffic control tower in an airport. It has different components to support the control:
 
@@ -52,12 +52,12 @@ This is like an air-traffic control tower in an airport. It has different compon
 4.  etcd :  key-value store. stores the state of the Kubernetes' cluster data.
 5.  Cloud Controller Manager: enables Kubernetes to interact with various cloud providers’ APIs (e.g., AWS, GCP, Azure). It is responsible for managing cloud-specific resources and services, like load balancers, storage volumes, and network configurations.
 
-**Components of a node**
+## Components of a node
 1.  Container Runtime: Pulls container images, creates and manages containers, and ensures they run properly and securely as directed by the Kubernetes control plane
 2.  kube-proxy: A network proxy that runs on each node in a Kubernetes cluster, maintaining network rules and enabling communication between pods and services within the node and the control plane, while also communicating directly with the kube-apiserver
 3.  kubelet: An agent that runs on each node in a Kubernetes cluster, ensuring containers in a pod are running and healthy while communicating with the API server in the control plane to maintain the desired state of the node.    
 
-**Three ways to ensure security of the Kubernetes cluster**
+## Three ways to ensure security of the Kubernetes cluster
 1. Add the "securiy context" in the YAML file.
 2. Use Synk - Pronouced as Sneak. Scan for any securities issues in the *.yml. More info at: https://snyk.io/        
 3. Update the Kubernetes software to the latest version, following the updates.
