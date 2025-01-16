@@ -1,46 +1,46 @@
-**Kubernetes Cluster**
+## Kubernetes Cluster
 
-    -   Top-level entity that encompasses all of the infrastructure components needed to run and manage containerized applications.
+-   Top-level entity that encompasses all of the infrastructure components needed to run and manage containerized applications.
 
-    -   It has multiple nodes
+-   It has multiple nodes
 
-    -   Cluster includes:
-            Master node(s) - Responsible for the overall management and control of the cluster like scheduling, load-balancing etc., 
-            Worker nodes   - Run the applications in containers.
+-   Cluster includes:
+        Master node(s) - Responsible for the overall management and control of the cluster like scheduling, load-balancing etc., 
+        Worker nodes   - Run the applications in containers.
 
 **Kubernetes Node**
 
-    - Single machine (either physical or virtual) within a Kubernetes cluster that runs one or more containers.
+- Single machine (either physical or virtual) within a Kubernetes cluster that runs one or more containers.
 
 **Pod**
 
-    -    A Node contains multiple pods
+-    A Node contains multiple pods
 
 **Container**
 
-    -   A pod can run one or more containers, but typically, each pod runs one container to maintain simplicity and scalability.
+-   A pod can run one or more containers, but typically, each pod runs one container to maintain simplicity and scalability.
 
-    -   runtime instance of a Docker image. It is the active version of an image that is running.
+-   runtime instance of a Docker image. It is the active version of an image that is running.
 
 **Docker Image**
 
-    An executable piece of software that contains the application code, libraries, environment variables, and configurations needed to run a program.
+An executable piece of software that contains the application code, libraries, environment variables, and configurations needed to run a program.
 
-**minikube**
+**minikube
 
-    quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows. On Cloud, we can have clusters from cloud providers like Google, Amazon etc.,
+quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows. On Cloud, we can have clusters from cloud providers like Google, Amazon etc.,
 
 **kubectl**
     
-    helps to manage the cluster e.g., kubectl get nodes
+helps to manage the cluster e.g., kubectl get nodes
 
 **busybox**
 
-    like an app to see if the containers in the pod are running
+like an app to see if the containers in the pod are running
 
 **Cluster**
     
-    An instance of Kubernetes.
+An instance of Kubernetes.
 
 **Kubernetes Control Plane**
 
